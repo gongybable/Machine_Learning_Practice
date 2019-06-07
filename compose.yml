@@ -1,0 +1,49 @@
+version: "2"
+services:
+  p1_titanic:
+    image: p1_titanic
+    build:
+      context: ./p1_titanic/
+      dockerfile: docker/Dockerfile
+    networks: 
+      ML:
+        aliases:
+          - p1_titanic
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./p1_titanic:/opt/
+    container_name: p1_titanic
+    hostname: p1_titanic
+  p2_boston_housing:
+    image: p2_boston_housing
+    build:
+      context: ./p2_boston_housing/
+      dockerfile: docker/Dockerfile
+    networks: 
+      ML:
+        aliases:
+          - p2_boston_housing
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./p2_boston_housing:/opt/
+    container_name: p2_boston_housing
+    hostname: p2_boston_housing
+  # p3_finding_donors:
+  #   image: p3_finding_donors
+  #   build:
+  #     context: ./p3_finding_donors/
+  #     dockerfile: docker/Dockerfile
+  #   networks: 
+  #     ML:
+  #       aliases:
+  #         - p3_finding_donors
+  #   ports:
+  #     - "8888:8888"
+  #   volumes:
+  #     - ./p3_finding_donors:/opt/
+  #   container_name: p3_finding_donors
+  #   hostname: p3_finding_donors
+networks:
+  ML:
