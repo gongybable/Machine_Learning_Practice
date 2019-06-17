@@ -30,20 +30,20 @@ services:
       - ./p2_boston_housing:/opt/
     container_name: p2_boston_housing
     hostname: p2_boston_housing
-  # p3_finding_donors:
-  #   image: p3_finding_donors
-  #   build:
-  #     context: ./p3_finding_donors/
-  #     dockerfile: docker/Dockerfile
-  #   networks: 
-  #     ML:
-  #       aliases:
-  #         - p3_finding_donors
-  #   ports:
-  #     - "8888:8888"
-  #   volumes:
-  #     - ./p3_finding_donors:/opt/
-  #   container_name: p3_finding_donors
-  #   hostname: p3_finding_donors
+  p3_finding_donors:
+    image: p3_finding_donors
+    build:
+      context: ./p3_finding_donors/
+      dockerfile: docker/Dockerfile
+    networks: 
+      ML:
+        aliases:
+          - p3_finding_donors
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./p3_finding_donors:/opt/
+    container_name: p3_finding_donors
+    hostname: p3_finding_donors
 networks:
   ML:
