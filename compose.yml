@@ -45,5 +45,20 @@ services:
       - ./p3_finding_donors:/opt/
     container_name: p3_finding_donors
     hostname: p3_finding_donors
+  p4_customer_segments:
+    image: p4_customer_segments
+    build:
+      context: ./p4_customer_segments/
+      dockerfile: docker/Dockerfile
+    networks: 
+      ML:
+        aliases:
+          - p4_customer_segments
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./p4_customer_segments:/opt/
+    container_name: p4_customer_segments
+    hostname: p4_customer_segments
 networks:
   ML:
