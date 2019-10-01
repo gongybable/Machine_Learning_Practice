@@ -60,5 +60,28 @@ services:
       - ./p4_customer_segments:/opt/
     container_name: p4_customer_segments
     hostname: p4_customer_segments
+  capstone:
+    image: capstone
+    build:
+      context: ./capstone/
+      dockerfile: docker/Dockerfile
+    networks: 
+      ML:
+        aliases:
+          - capstone
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./capstone:/opt/
+    container_name: capstone
+    hostname: capstone
+  tensorflow:
+    image: tensorflow/tensorflow:nightly-py3-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./tensorflow:/opt/
+    container_name: tensorflow
+    hostname: tensorflow
 networks:
   ML:
